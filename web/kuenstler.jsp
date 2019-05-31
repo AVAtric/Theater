@@ -17,7 +17,7 @@
     <sql:query var="personen"
                sql="select * from person natural join kuenstler">
     </sql:query>
-    <table class="table table-striped mt-3">
+    <table class="table table-striped mt-4">
         <thead>
         <tr>
             <th scope="col">SVNr</th>
