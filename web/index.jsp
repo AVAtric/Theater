@@ -3,7 +3,7 @@
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<html lang="de">
+<html class="h-100" lang="de">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="angestellteDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle ${param.menu=='kuenstler' or param.menu=='arbeiter' ? 'active' : ''}" href="#" id="angestellteDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Angestellte
                     </a>
                     <div class="dropdown-menu" aria-labelledby="angestellteDropdown">
@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="theaterDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle ${param.menu=='rollenbuecher' or param.menu=='auffuehrung' ? 'active' : ''}" href="#" id="theaterDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Theaterst&uuml;cke
                     </a>
                     <div class="dropdown-menu" aria-labelledby="theaterDropdown">
@@ -61,12 +61,10 @@
 
 <footer class="footer mt-auto py-3">
     <div class="container">
-        <span class="text-muted">&copy; BIC B4</span>
+        <span class="text-muted">&copy;BIC B4</span>
     </div>
 </footer>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
