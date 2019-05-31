@@ -25,6 +25,7 @@
             <th scope="col">Nachname</th>
             <th scope="col">K&uuml;nstlername</th>
             <th scope="col">Einstelldatum</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -35,8 +36,60 @@
                 <td>${person.Nachname}</td>
                 <td>${person.kuenstlername}</td>
                 <td><fmt:formatDate type="date" value="${person.einstelldatum}"/></td>
+                <td>
+                    <button
+                            type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#kuenstlerModal"
+                            data-svnr="${person.SVNr}"
+                            data-vorname="${person.Vorname}"
+                            data-nachname="${person.Nachname}"
+                            data-kuenstlername="${person.kuenstlername}">
+                        <i class="fa fa-fw fa-edit"></i>
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+
+    <div class="modal fade" id="kuenstlerModal" tabindex="-1" role="dialog" aria-labelledby="kuenstlerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="kuenstlerModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="svnr" class="col-form-label">SVNr:</label>
+                            <input type="text" class="form-control" id="svnr">
+                        </div>
+                        <div class="form-group">
+                            <label for="vorname" class="col-form-label">Vorname:</label>
+                            <input type="text" class="form-control" id="vorname">
+                        </div>
+                        <div class="form-group">
+                            <label for="nachname" class="col-form-label">Nachname:</label>
+                            <input type="text" class="form-control" id="nachname">
+                        </div>
+                        <div class="form-group">
+                            <label for="kuenstlername" class="col-form-label">K&uuml;nstlername:</label>
+                            <input type="text" class="form-control" id="kuenstlername">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-fw fa-window-close"></i>&nbsp;Close</button>
+                    <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-save"></i>&nbsp;Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

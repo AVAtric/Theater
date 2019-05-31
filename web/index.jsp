@@ -10,6 +10,7 @@
     <title>Theatermanagement</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="d-flex flex-column h-100">
@@ -68,5 +69,8 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<c:if test="${!empty param.menu}">
+    <script src="js/${param.menu}.js"></script>
+</c:if>
 </body>
 </html>
