@@ -13,10 +13,25 @@
 <fmt:setLocale value="de_DE"/>
 
 <div class="container">
+    <c:if test="${!empty param.updateKuenstler}">
+        <div class="alert alert-success mt-3" role="alert">
+            Daten der K&uuml;stlers wurden erfolgreich aktualisiert!
+        </div>
+        <sql:update var="updateKuenstler"
+                    sql="UPDATE PERSON SET Vorname = ?, Nachname = ? WHERE SVNr = ?">
+            <sql:param value="${param.vorname}" />
+            <sql:param value="${param.nachname}" />
+            <sql:param value="${param.svnr}" />
+        </sql:update>
+    </c:if>
+
     <h1 class="mt-5">K&uuml;nstler</h1>
+
     <sql:query var="personen"
                sql="select * from person natural join kuenstler">
     </sql:query>
+
+
     <table class="table table-striped mt-4">
         <thead>
         <tr>
@@ -60,34 +75,33 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="kuenstlerModalLabel">New message</h5>
+                    <h5 class="modal-title" id="kuenstlerModalLabel">Edit kuenstler</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="svnr" class="col-form-label">SVNr:</label>
-                            <input type="text" class="form-control" id="svnr">
-                        </div>
+                    <form id="kuenstlerEditForm" action="index.jsp" type="post">
+                        <input type="hidden" name="svnr" id="svnr">
+                        <input type="hidden" name="updateKuenstler" value="1">
+                        <input type="hidden" name="menu" value="kuenstler">
                         <div class="form-group">
                             <label for="vorname" class="col-form-label">Vorname:</label>
-                            <input type="text" class="form-control" id="vorname">
+                            <input type="text" class="form-control" id="vorname" name="vorname">
                         </div>
                         <div class="form-group">
                             <label for="nachname" class="col-form-label">Nachname:</label>
-                            <input type="text" class="form-control" id="nachname">
+                            <input type="text" class="form-control" id="nachname" name="nachname">
                         </div>
                         <div class="form-group">
                             <label for="kuenstlername" class="col-form-label">K&uuml;nstlername:</label>
-                            <input type="text" class="form-control" id="kuenstlername">
+                            <input type="text" class="form-control" id="kuenstlername" name="kuenstlername">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-fw fa-window-close"></i>&nbsp;Close</button>
-                    <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-save"></i>&nbsp;Save</button>
+                    <button type="button" class="btn btn-primary" id="submitEditKuenstler"><i class="fa fa-fw fa-save"></i>&nbsp;Save</button>
                 </div>
             </div>
         </div>
