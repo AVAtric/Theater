@@ -70,7 +70,9 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <c:if test="${!empty param.menu}">
-    <script src="js/${param.menu}.js"></script>
+    <c:if test="${param.menu == 'kuenstler' or param.menu == 'arbeiter'}">
+        <script src="js/${param.menu}.js"></script>
+    </c:if>
 </c:if>
 </body>
 </html>
