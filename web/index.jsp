@@ -31,18 +31,11 @@
                         <a class="dropdown-item ${param.menu=='arbeiter' ? 'active' : ''}" href="index.jsp?menu=arbeiter">B&uuml;hnenarbeiter</a>
                     </div>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ${param.menu=='rollenbuecher' or param.menu=='auffuehrung' ? 'active' : ''}" href="#" id="theaterDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Theaterst&uuml;cke
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="theaterDropdown">
-                        <a class="dropdown-item ${param.menu=='auffuehrung' ? 'active' : ''}" href="index.jsp?menu=auffuehrung">Auff&uuml;rungen</a>
-                        <a class="dropdown-item ${param.menu=='rollenbuecher' ? 'active' : ''}" href="index.jsp?menu=rollenbuecher">Rollenb&uuml;cher</a>
-                    </div>
+                <li class="nav-item ${param.menu=='auffuehrung' ? 'active' : ''}">
+                    <a class="nav-link " href="index.jsp?menu=auffuehrung">Auff&uuml;rungen</a>
                 </li>
-                <li class="nav-item ${param.menu=='besucher' ? 'active' : ''}">
-                    <a class="nav-link " href="index.jsp?menu=besucher">Besucher</a>
+                <li class="nav-item ${param.menu=='rollenbuecher' ? 'active' : ''}">
+                    <a class="nav-link " href="index.jsp?menu=rollenbuecher">Rollenb&uuml;cher</a>
                 </li>
             </ul>
         </div>
